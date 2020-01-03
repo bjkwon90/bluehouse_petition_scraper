@@ -10,7 +10,11 @@ class Scraper:
         self.res = dict()
 
     def _req(self, url):
-        self.driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('headless')
+        options.add_argument('window-size=1920x1080')
+        options.add_argument("disable-gpu")
+        self.driver = webdriver.Chrome('chromedriver', chrome_options=options)
         self.driver.get(url)
         #r = requests.get(url)
         soup = BeautifulSoup(self.driver.page_source, 'lxml')

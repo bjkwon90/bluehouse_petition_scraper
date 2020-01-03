@@ -1,0 +1,4 @@
+# Ignore all files under data
+data/
+.idea/
+__pycache__/
